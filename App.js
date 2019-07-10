@@ -20,15 +20,15 @@ const App = () => {
     <View style={styles.mainContainer}>
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.menuItem}>
-          <Image style={styles.menuIconStyle} source={require('./images/todo_icon.png')}/>
+          <Image style={styles.menuIcon} source={require('./images/todo_icon.png')}/>
           <Text style={styles.menuText}>TO-DO LIST</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Image style={styles.menuIconStyle} source={require('./images/analytics_icon.png')}/>
+          <Image style={styles.menuIcon} source={require('./images/analytics_icon.png')}/>
           <Text style={styles.menuText}>ANALYTICS</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Image style={styles.menuIconStyle} source={require('./images/ringtone_icon.png')}/>
+          <Image style={styles.menuIcon} source={require('./images/ringtone_icon.png')}/>
           <Text style={styles.menuText}>RINGTONES</Text>
         </TouchableOpacity>
       </View>
@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  menuIconStyle: {
+  menuIcon: {
     padding: 10,
     margin: 5,
-    height: 36,
-    width: 36,
+    height: 35,
+    width: 35,
     resizeMode: 'stretch',
     tintColor: '#FF4384',
   },
