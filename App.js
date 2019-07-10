@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React from 'react';
 import {
   TouchableOpacity,
   StyleSheet,
@@ -45,17 +45,16 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     alignItems: 'center',
-    marginTop: 60,
+    paddingTop: 60,
   },
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   menuIcon: {
-    padding: 10,
-    margin: 5,
-    height: 35,
-    width: 35,
+    margin: 10,
+    height: 30,
+    width: 30,
     resizeMode: 'stretch',
     tintColor: '#FF4384',
   },
@@ -63,7 +62,6 @@ const styles = StyleSheet.create({
     color: '#FF4384',
     fontSize: 30,
     fontFamily: 'Roboto-Bold',
-    marginRight: 5,
   }
 });
 
