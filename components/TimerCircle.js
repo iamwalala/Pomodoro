@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         tintColor: '#FF4384',
-        resizeMode: 'center',
+        resizeMode: 'stretch',
         backgroundColor: '#FFF',
         borderRadius: 25,
         borderWidth: 0,
