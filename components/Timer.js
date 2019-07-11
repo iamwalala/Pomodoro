@@ -4,9 +4,10 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Text,
 } from 'react-native'
 
-class TimerCircle extends Component {
+class Timer extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,12 +24,15 @@ class TimerCircle extends Component {
 
     render() {
         return (
-            <View style={this.getStyleForTimerFrame()}>
-              <View style={this.getStyleForTimerCircle()}>
-                <TouchableOpacity onPress={this.onPress}>
-                  <Image style={this.getStyleForTimerIcon()} source={this.getImageForTimerIcon()}/>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.container}>
+                <View style={this.getStyleForTimerFrame()}>
+                    <View style={this.getStyleForTimerCircle()}>
+                        <TouchableOpacity onPress={this.onPress}>
+                            <Image style={this.getStyleForTimerIcon()} source={this.getImageForTimerIcon()}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <Text style={this.getStyleForTimerText()}>{this.getTimerText().toString()}</Text>
             </View>
         );
     }
@@ -39,6 +43,15 @@ class TimerCircle extends Component {
         }
         else {
             return styles.breakTimerFrame
+        }
+    }
+
+    getStyleForTimerText() {
+        if (this.state.workingMode) {
+            return styles.workTimerText
+        }
+        else {
+            return styles.breakTimerText
         }
     }
 
@@ -89,9 +102,20 @@ class TimerCircle extends Component {
         }
     }
   
+    getTimerText() {
+        if (this.state.workingMode) {
+            return (1000 * 60 * 25)
+        }
+        else {
+            return (1000 * 60 * 5)
+        }
+    }
 };
 
 const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+    },
     workStartIcon: {
         height: 50,
         width: 50,
@@ -144,7 +168,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         tintColor: '#00A7FF',
-        resizeMode: 'center',
+        resizeMode: 'stretch',
         backgroundColor: '#FFF',
         borderRadius: 25,
         borderWidth: 0,
@@ -186,7 +210,19 @@ const styles = StyleSheet.create({
         borderColor: '#00A7FF',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    workTimerText: {
+        color: '#FF4384',
+        fontSize: 100,
+        fontFamily: 'Roboto-Bold',
+        marginTop: 10,
+    },
+    breakTimerText: {
+        color: '#00A7FF',
+        fontSize: 100,
+        fontFamily: 'Roboto-Bold',
+        marginTop: 10,
     }
 });
 
-export default TimerCircle;
+export default Timer;

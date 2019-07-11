@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import TimerCircle from './components/TimerCircle';
+import Timer from './components/Timer';
 import {
   TouchableOpacity,
   StyleSheet,
@@ -32,8 +32,7 @@ const App = () => {
           <Image style={styles.menuIcon} source={require('./images/ringtone_icon.png')}/>
           <Text style={styles.menuText}>RINGTONES</Text>
         </TouchableOpacity>
-        <TimerCircle workingMode={true} started={false}/>
-        <Text style={styles.workTimerText}>25:00</Text>
+        <Timer workingMode={false} started={false}/>
       </View>
     </View>
   );
@@ -66,12 +65,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: 'Roboto-Bold',
     marginRight: 10,
-  },
-  workTimerText: {
-      color: '#FF4384',
-      fontSize: 100,
-      fontFamily: 'Roboto-Bold',
-      marginTop: 10,
   }
 });
 
