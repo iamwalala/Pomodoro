@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { TimeFormat } from '../utils/Utils.js'
+
 import {
   StyleSheet,
   TouchableOpacity,
@@ -11,14 +13,20 @@ class Timer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            workingMode: props.workingMode,
-            started: props.started
+            workingMode: true,
+            started: false,
+            workDuration: 60*25,
+            breakDuration: 60*5,
+            remaining: 60*25,
+            timer: null
         }
     }
 
     onPress = () => {
+        let timer = (this.state.timer == null) ? setInterval(this.countDown.bind(this), 1000) : this.state.timer;
         this.setState ({
-            started: !this.state.started
+            started: !this.state.started,
+            timer: timer
         })
     }
 
@@ -32,7 +40,7 @@ class Timer extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={this.getStyleForTimerText()}>{this.getTimerText().toString()}</Text>
+                <Text style={this.getStyleForTimerText()}>{this.getTimerText()}</Text>
             </View>
         );
     }
@@ -101,14 +109,28 @@ class Timer extends Component {
             return require('../images/play_arrow.png')
         }
     }
-  
+
+    countDown() {
+        if (this.state.started) {
+            if (this.state.remaining > 0) {
+                this.setState ({
+                    remaining: this.state.remaining - 1
+                })
+            }
+            else {
+                clearInterval(this.state.timer);
+                this.setState ({
+                    workingMode: !this.state.workingMode,
+                    remaining: this.state.workingMode ? this.state.breakDuration : this.state.workDuration,
+                    started: false,
+                    timer: null
+                })
+            }
+        } 
+    }
+    
     getTimerText() {
-        if (this.state.workingMode) {
-            return (1000 * 60 * 25)
-        }
-        else {
-            return (1000 * 60 * 5)
-        }
+        return TimeFormat(this.state.remaining)
     }
 };
 

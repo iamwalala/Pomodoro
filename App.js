@@ -32,7 +32,7 @@ const App = () => {
           <Image style={styles.menuIcon} source={require('./images/ringtone_icon.png')}/>
           <Text style={styles.menuText}>RINGTONES</Text>
         </TouchableOpacity>
-        <Timer workingMode={false} started={false}/>
+        <Timer />
       </View>
     </View>
   );
