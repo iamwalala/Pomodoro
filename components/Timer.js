@@ -9,15 +9,15 @@ import {
   Text,
 } from 'react-native'
 
+const workDuration = 60*2.5;
+const breakDuration = 60*0.5;
 class Timer extends Component {
     constructor(props) {
         super(props)
         this.state = {
             workingMode: true,
             started: false,
-            workDuration: 60*25,
-            breakDuration: 60*5,
-            remaining: 60*25,
+            remaining: workDuration,
             timer: null
         }
     }
@@ -121,7 +121,7 @@ class Timer extends Component {
                 clearInterval(this.state.timer);
                 this.setState ({
                     workingMode: !this.state.workingMode,
-                    remaining: this.state.workingMode ? this.state.breakDuration : this.state.workDuration,
+                    remaining: this.state.workingMode ? breakDuration : workDuration,
                     started: false,
                     timer: null
                 })
@@ -134,32 +134,35 @@ class Timer extends Component {
     }
 };
 
+const iconRadius = 25;
+const frameRadius = 100;
+const circleRadius = 90;
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
     },
     workStartIcon: {
-        height: 50,
-        width: 50,
+        height: iconRadius*2,
+        width: iconRadius*2,
         tintColor: '#FF4384',
         resizeMode: 'stretch',
         backgroundColor: '#FFF',
-        borderRadius: 25,
+        borderRadius: iconRadius,
         borderWidth: 0,
         borderColor: '#FFF',
     },
     workPauseIcon: {
-        height: 50,
-        width: 50,
+        height: iconRadius*2,
+        width: iconRadius*2,
         tintColor: '#FF4384',
         resizeMode: 'stretch',
-        borderRadius: 25,
+        borderRadius: iconRadius,
         borderWidth: 0,
     },
     workStopTimerCircle: {
-        height: 180,
-        width: 180,
-        borderRadius: 90,
+        height: circleRadius*2,
+        width: circleRadius*2,
+        borderRadius: circleRadius,
         borderWidth: 2,
         borderColor: '#FF4384',
         backgroundColor: '#FF4384',
@@ -167,9 +170,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     workStartTimerCircle: {
-        height: 180,
-        width: 180,
-        borderRadius: 90,
+        height: circleRadius*2,
+        width: circleRadius*2,
+        borderRadius: circleRadius,
         borderWidth: 2,
         borderColor: '#FF4384',
         backgroundColor: '#FFF',
@@ -178,35 +181,35 @@ const styles = StyleSheet.create({
     },
     workTimerFrame: {
         marginTop: 30,
-        height: 200,
-        width: 200,
-        borderRadius: 100,
+        height: frameRadius*2,
+        width: frameRadius*2,
+        borderRadius: frameRadius,
         borderWidth: 2,
         borderColor: '#FF4384',
         alignItems: 'center',
         justifyContent: 'center',
     },
     breakStartIcon: {
-        height: 50,
-        width: 50,
+        height: iconRadius*2,
+        width: iconRadius*2,
         tintColor: '#00A7FF',
         resizeMode: 'stretch',
         backgroundColor: '#FFF',
-        borderRadius: 25,
+        borderRadius: iconRadius,
         borderWidth: 0,
         borderColor: '#FFF',
     },
     breakPauseIcon: {
-        height: 50,
-        width: 50,
+        height: iconRadius*2,
+        width: iconRadius*2,
         tintColor: '#00A7FF',
-        borderRadius: 25,
+        borderRadius: iconRadius,
         borderWidth: 0,
     },
     breakStopTimerCircle: {
-        height: 180,
-        width: 180,
-        borderRadius: 90,
+        height: circleRadius*2,
+        width: circleRadius*2,
+        borderRadius: circleRadius,
         borderWidth: 2,
         borderColor: '#00A7FF',
         backgroundColor: '#00A7FF',
@@ -214,9 +217,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     breakStartTimerCircle: {
-        height: 180,
-        width: 180,
-        borderRadius: 90,
+        height: circleRadius*2,
+        width: circleRadius*2,
+        borderRadius: circleRadius,
         borderWidth: 2,
         borderColor: '#00A7FF',
         backgroundColor: '#FFF',
@@ -225,9 +228,9 @@ const styles = StyleSheet.create({
     },
     breakTimerFrame: {
         marginTop: 30,
-        height: 200,
-        width: 200,
-        borderRadius: 100,
+        height: frameRadius*2,
+        width: frameRadius*2,
+        borderRadius: frameRadius,
         borderWidth: 2,
         borderColor: '#00A7FF',
         alignItems: 'center',
