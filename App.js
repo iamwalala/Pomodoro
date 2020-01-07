@@ -38,12 +38,14 @@ const App = () => {
   );
 };
 
+const pink = '#FF4384';
+const darkBlue = '#003164';
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignContent: 'center',
     margin: 0,
-    backgroundColor: '#003164',
+    backgroundColor: darkBlue,
   },
   menuContainer: {
     alignItems: 'center',
@@ -58,10 +60,10 @@ const styles = StyleSheet.create({
     height: 25,
     width: 25,
     resizeMode: 'stretch',
-    tintColor: '#FF4384',
+    tintColor: pink,
   },
   menuText: {
-    color: '#FF4384',
+    color: pink,
     fontSize: 25,
     fontFamily: 'Roboto-Bold',
     marginRight: 10,

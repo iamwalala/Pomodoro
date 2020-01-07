@@ -137,6 +137,8 @@ class Timer extends Component {
 const iconRadius = 25;
 const frameRadius = 100;
 const circleRadius = 90;
+const pink = '#FF4384';
+const blue = '#00A7FF';
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
     workStartIcon: {
         height: iconRadius*2,
         width: iconRadius*2,
-        tintColor: '#FF4384',
+        tintColor: pink,
         resizeMode: 'stretch',
         backgroundColor: '#FFF',
         borderRadius: iconRadius,
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
     workPauseIcon: {
         height: iconRadius*2,
         width: iconRadius*2,
-        tintColor: '#FF4384',
+        tintColor: pink,
         resizeMode: 'stretch',
         borderRadius: iconRadius,
         borderWidth: 0,
@@ -164,8 +166,8 @@ const styles = StyleSheet.create({
         width: circleRadius*2,
         borderRadius: circleRadius,
         borderWidth: 2,
-        borderColor: '#FF4384',
-        backgroundColor: '#FF4384',
+        borderColor: pink,
+        backgroundColor: pink,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
         width: circleRadius*2,
         borderRadius: circleRadius,
         borderWidth: 2,
-        borderColor: '#FF4384',
+        borderColor: pink,
         backgroundColor: '#FFF',
         alignItems: 'center',
         justifyContent: 'center',
@@ -185,14 +187,14 @@ const styles = StyleSheet.create({
         width: frameRadius*2,
         borderRadius: frameRadius,
         borderWidth: 2,
-        borderColor: '#FF4384',
+        borderColor: pink,
         alignItems: 'center',
         justifyContent: 'center',
     },
     breakStartIcon: {
         height: iconRadius*2,
         width: iconRadius*2,
-        tintColor: '#00A7FF',
+        tintColor: blue,
         resizeMode: 'stretch',
         backgroundColor: '#FFF',
         borderRadius: iconRadius,
@@ -202,7 +204,7 @@ const styles = StyleSheet.create({
     breakPauseIcon: {
         height: iconRadius*2,
         width: iconRadius*2,
-        tintColor: '#00A7FF',
+        tintColor: blue,
         borderRadius: iconRadius,
         borderWidth: 0,
     },
@@ -211,8 +213,8 @@ const styles = StyleSheet.create({
         width: circleRadius*2,
         borderRadius: circleRadius,
         borderWidth: 2,
-        borderColor: '#00A7FF',
-        backgroundColor: '#00A7FF',
+        borderColor: blue,
+        backgroundColor: blue,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -221,7 +223,7 @@ const styles = StyleSheet.create({
         width: circleRadius*2,
         borderRadius: circleRadius,
         borderWidth: 2,
-        borderColor: '#00A7FF',
+        borderColor: blue,
         backgroundColor: '#FFF',
         alignItems: 'center',
         justifyContent: 'center',
@@ -232,18 +234,18 @@ const styles = StyleSheet.create({
         width: frameRadius*2,
         borderRadius: frameRadius,
         borderWidth: 2,
-        borderColor: '#00A7FF',
+        borderColor: blue,
         alignItems: 'center',
         justifyContent: 'center',
     },
     workTimerText: {
-        color: '#FF4384',
+        color: pink,
         fontSize: 100,
         fontFamily: 'Roboto-Bold',
         marginTop: 10,
     },
     breakTimerText: {
-        color: '#00A7FF',
+        color: blue,
         fontSize: 100,
         fontFamily: 'Roboto-Bold',
         marginTop: 10,
