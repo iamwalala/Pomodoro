@@ -35,7 +35,7 @@ const App = () => {
         <Stack.Screen
           name="ToDo"
           component={ToDoScreen}
-          options={{ title: 'To-Do List', titleColor: darkBlue, headerTransparent: true}}
+          options={{ title: 'To-Do List', headerTintColor: darkBlue, headerTransparent: true, headerTintColor: darkBlue, headerBackTitleVisible: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
