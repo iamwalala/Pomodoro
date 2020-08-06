@@ -6,8 +6,13 @@
  * @flow
  */
 
-import React from 'react';
-import Timer from './components/Timer';
+import * as React from 'react';
+import { navigationRef } from './utils/RootNavigation';
+import HomeScreen from './components/HomeScreen';
+import ToDoScreen from './components/ToDoScreen';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import {
   TouchableOpacity,
   StyleSheet,
@@ -16,58 +21,27 @@ import {
   Text,
 } from 'react-native';
 
+const Stack = createStackNavigator();
+
 const App = () => {
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.menuContainer}>
-        <TouchableOpacity style={styles.menuItem}>
-          <Image style={styles.menuIcon} source={require('./images/todo_icon.png')}/>
-          <Text style={styles.menuText}>TO-DO LIST</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Image style={styles.menuIcon} source={require('./images/analytics_icon.png')}/>
-          <Text style={styles.menuText}>ANALYTICS</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Image style={styles.menuIcon} source={require('./images/ringtone_icon.png')}/>
-          <Text style={styles.menuText}>RINGTONES</Text>
-        </TouchableOpacity>
-        <Timer />
-      </View>
-    </View>
+    <NavigationContainer ref={navigationRef}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: '', headerTransparent: true}}
+        />
+        <Stack.Screen
+          name="ToDo"
+          component={ToDoScreen}
+          options={{ title: 'To-Do List', titleColor: darkBlue, headerTransparent: true}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 const pink = '#FF4384';
 const darkBlue = '#003164';
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    alignContent: 'center',
-    margin: 0,
-    backgroundColor: darkBlue,
-  },
-  menuContainer: {
-    alignItems: 'center',
-    marginTop: 50,
-  },
-  menuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  menuIcon: {
-    margin: 10,
-    height: 25,
-    width: 25,
-    resizeMode: 'stretch',
-    tintColor: pink,
-  },
-  menuText: {
-    color: pink,
-    fontSize: 25,
-    fontFamily: 'Roboto-Bold',
-    marginRight: 10,
-  }
-});
-
 export default App;
